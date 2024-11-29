@@ -4,7 +4,7 @@ const { add, subtract, multiply, divide } = require('../src/mathOperations');
 describe('Math Operations - Модульні тести', () => {
   // Модульний тест 1: перевірка додавання
   test('add() adds two numbers correctly', () => {
-    expect(add(2, 3)).toBe(5);
+    expect(add(2, 3)).toBe(7); // змінено тест, що 2 + 3 = 7 (що звісно неправильно)
   });
 
   // Модульний тест 2: перевірка віднімання
