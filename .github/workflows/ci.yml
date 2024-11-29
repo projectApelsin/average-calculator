@@ -1,4 +1,4 @@
-name: Lab CI
+name: Run Unit Tests
 
 on:
   push:
@@ -9,20 +9,22 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: '20.x'
+        node-version: '16'  # Вкажіть версію Node.js, яку ви використовуєте
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm install
 
     - name: Run tests
-      run: npm test
+      run: |
+        npm test
