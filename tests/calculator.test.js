@@ -1,29 +1,34 @@
 // tests/calculator.test.js
+const { add, subtract, multiply, divide } = require('../src/mathOperations');
 
-const calculateAverage = require('../src/mathOperations.js');
-
-describe('calculateAverage', () => {
-  test('should return correct average for positive numbers', () => {
-    const result = calculateAverage([1, 2, 3, 4, 5]);
-    expect(result).toBe(3);
+describe('Math Operations - Модульні тести', () => {
+  // Модульний тест 1: перевірка додавання
+  test('add() adds two numbers correctly', () => {
+    expect(add(2, 3)).toBe(5);
   });
 
-  test('should return correct average for negative numbers', () => {
-    const result = calculateAverage([-1, -2, -3, -4, -5]);
-    expect(result).toBe(-3);
+  // Модульний тест 2: перевірка віднімання
+  test('subtract() subtracts two numbers correctly', () => {
+    expect(subtract(5, 3)).toBe(2);
   });
 
-  test('should return 0 for an empty array', () => {
-    const result = calculateAverage([]);
-    expect(result).toBe(0);
+  // Модульний тест 3: перевірка множення
+  test('multiply() multiplies two numbers correctly', () => {
+    expect(multiply(2, 3)).toBe(6);
+  });
+});
+
+describe('Math Operations - Інтеграційні тести', () => {
+  // Інтеграційний тест 1: перевірка комбінованих операцій
+  test('add() and multiply() combined', () => {
+    const sum = add(2, 3); // sum = 5
+    const result = multiply(sum, 4); // 5 * 4 = 20
+    expect(result).toBe(20);
   });
 
-  test('should throw an error if input is not an array', () => {
-    expect(() => calculateAverage('string')).toThrow('Input must be an array');
-  });
-
-  test('should handle array with one element', () => {
-    const result = calculateAverage([42]);
-    expect(result).toBe(42);
+  // Інтеграційний тест 2: перевірка обробки помилок в комбінації з діленням
+  test('add() and divide() with error handling', () => {
+    const sum = add(6, 2); // sum = 8
+    expect(() => divide(sum, 0)).toThrow('Cannot divide by zero');
   });
 });
