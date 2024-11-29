@@ -1,6 +1,6 @@
 // tests/calculator.test.js
 
-const calculateAverage = require('../src/calculator');
+const calculateAverage = require('../src/mathOperations.js');
 
 describe('calculateAverage', () => {
   test('should return correct average for positive numbers', () => {
