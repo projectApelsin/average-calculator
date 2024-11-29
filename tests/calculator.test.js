@@ -1,6 +1,6 @@
 // tests/calculator.test.js
 const { add, subtract, multiply, divide } = require('../src/mathOperations');
-
+// додано незначні зміни у вигляді коментаря
 describe('Math Operations - Модульні тести', () => {
   // Модульний тест 1: перевірка додавання
   test('add() adds two numbers correctly', () => {
